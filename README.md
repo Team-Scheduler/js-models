@@ -111,3 +111,39 @@ property to allow the company to sort the holidays in a particular order.
     2.  Methods:
         - CompareTo(another holiday) - used in sorting the company's holidays
             based on display order, least first.
+
+ContactType
+-----------
+
+This contact type object is used to create a list of the various ways a member
+of the team (or outside) can contact another member.  This could be a type of 
+phone number, email address or other...
+
+    1.  Members
+        - Code (short title)
+        - Description (long title)
+        - IsRequired (boolean value whether the employee must have this 
+            information in their data)
+        - Display Order
+    2.  Method:
+        - CompareTo(another contact type) - used in sorting the contact types
+            based on display order, least first.
+
+DisplayCode
+-----------
+
+This display code object is used to define the viewing color scheme for anything
+schedule related.  The various codes can be displayed using differing background
+and text colors to highlight the information to viewers.
+
+    1.  Members
+        - Code
+        - Name (description)
+        - BackColor (RGB Color in hex string)
+        - TextColor (RGB Color in hex string)
+        - IsLeave (boolean value to indicate the code is for leave definitions, 
+            rather than shift codes)
+        - Display Order
+    2.  Method:
+        - CompareTo(another display code) - used in sorting the display codes
+            based on display order, least first.
