@@ -1,5 +1,7 @@
 # js-models
 
+# All models are based on a NoSql database solution, like MongoDB #
+
 Data Concepts:
 ==============
 
@@ -45,3 +47,17 @@ subdivided into workcenters where the people normally work.
 3.  The workcenter is where employees are assigned.  This next level in the 
 object hierarchy allows employees to be grouped and shift coverage to be reviewed
 to ensure the site can accomplish the contract tasks.
+4.  The bottom of the object hierarchy is the employee.  This is at the bottom 
+because employee can be moved between sites and workcenters within the team, but
+you don't move a site or workcenter.  The employee's data is stored within a 
+contained document in the database, with two exceptions: 1) Work data and 2) 
+Leave data.  The two exceptions are in separate collections due to the probable
+data size.  It is assumed that the server will compile the work and leave data, 
+from the separate collections into a composite object to transfer.
+
+Models
+======
+
+Team
+----
+
