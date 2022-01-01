@@ -67,7 +67,6 @@ Knowledge specialty areas, Personal contact information types and Display codes
 for work and leaves.  The final array contains associated site data (see site
 model description, below).
 
-    Team
     1. Members
         - ID
         - Name
@@ -79,3 +78,36 @@ model description, below).
         - Contact Types
         - Sites
     2. Methods:
+
+Company
+-------
+
+The company object consists of a code and title, plus a reference to the type
+of time card system used for ingesting time card data.  Available time card 
+systems (currently) are: SAP and manual.  Additionally, the company can list
+all of the holidays an employee can use as days off within a calendar year.
+
+    1. Members
+        - Code
+        - Title
+        - Time Card System
+        - Holidays
+    2. Methods: 
+        - CompareTo(another company) - used in sorting the team's companies
+            based on code and title, alphabetically.
+
+Holiday
+-------
+
+The holiday object consists of a company code and title for the holiday, a list
+of actual/reference dates for the holiday (one per year), and display order 
+property to allow the company to sort the holidays in a particular order.
+
+    1.  Members
+        - Code
+        - Title
+        - Display Order
+        - Actual Dates list
+    2.  Methods:
+        - CompareTo(another holiday) - used in sorting the company's holidays
+            based on display order, least first.
