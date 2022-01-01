@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Team-Scheduler/js-models/issues"
   },
-  "homepage": "https://github.com/Team-Scheduler/js-models#readme"
+  "homepage": "https://github.com/Team-Scheduler/js-models#readme",
+  "dependencies": {
+    "mongodb": "^4.2.2"
+  }
 }
