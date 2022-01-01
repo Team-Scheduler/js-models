@@ -22,4 +22,11 @@ export class Holiday implements IHoliday {
             })
         }
     }
+
+    compareTo(other: IHoliday): number {
+        if (other.display_order === this.display_order) {
+            return (this.code < other.code) ? -1 : 1;
+        }
+        return (this.display_order < other.display_order) ? -1 : 1;
+    }
 }

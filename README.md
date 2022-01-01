@@ -61,3 +61,21 @@ Models
 Team
 ----
 
+The team object consists of an identifier and name/title for the team, plus 
+arrays of objects for the team's associated data: Companies and company holidays,
+Knowledge specialty areas, Personal contact information types and Display codes
+for work and leaves.  The final array contains associated site data (see site
+model description, below).
+
+    Team
+    1. Members
+        - ID
+        - Name
+        - Companies
+            - Holidays
+        - DisplayCodes
+        - Knowledge Area Groups
+            - Knowledge areas
+        - Contact Types
+        - Sites
+    2. Methods:
