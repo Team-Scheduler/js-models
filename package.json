@@ -1,0 +1,19 @@
+{
+  "name": "js-models",
+  "version": "1.0.0",
+  "description": "This package contains the typescript/javascript models for the team scheduler application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Scheduler/js-models.git"
+  },
+  "author": "Anton P. Erne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-Scheduler/js-models/issues"
+  },
+  "homepage": "https://github.com/Team-Scheduler/js-models#readme"
+}
