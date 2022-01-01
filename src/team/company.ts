@@ -1,4 +1,4 @@
-import { IHoliday, Holiday } from "./holiday";
+import { Holiday, IHoliday } from "./holidays";
 
 export interface ICompany {
     code: string;

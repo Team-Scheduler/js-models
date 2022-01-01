@@ -1,6 +1,9 @@
 import { ObjectId } from "mongodb";
 
-export interface ITeam {
-    _id?: ObjectId
-    name: string
+export namespace Teams {
+
+    export interface ITeam {
+        _id?: ObjectId
+        name: string
+    }
 }
