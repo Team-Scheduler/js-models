@@ -1,3 +1,5 @@
+import { IComparable } from "../utilities/comparable";
+
 export interface IHoliday {
     code: string;
     title: string;
@@ -5,7 +7,7 @@ export interface IHoliday {
     display_order: number;
 }
 
-export class Holiday implements IHoliday {
+export class Holiday implements IHoliday, IComparable<IHoliday> {
     public code: string;
     public title: string;
     public actual_dates: Date[];
@@ -19,11 +21,14 @@ export class Holiday implements IHoliday {
         if (other && other.actual_dates && other.actual_dates.length > 0) {
             other.actual_dates.forEach(dt => {
                 this.actual_dates.push(new Date(dt));
-            })
+            });
+            this.actual_dates.sort((a,b) => {
+                return (a.getTime() < b.getTime()) ? -1 : 1;
+            });
         }
     }
 
-    compareTo(other: IHoliday): number {
+    public compareTo(other: IHoliday): number {
         if (other.display_order === this.display_order) {
             return (this.code < other.code) ? -1 : 1;
         }

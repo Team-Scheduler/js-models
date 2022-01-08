@@ -1,3 +1,5 @@
+import { IComparable } from "../utilities/comparable";
+
 export interface IDisplayCode {
     code: string;
     name: string;
@@ -7,7 +9,7 @@ export interface IDisplayCode {
     display_order: number;
 }
 
-export class DisplayCode implements IDisplayCode {
+export class DisplayCode implements IDisplayCode, IComparable<IDisplayCode> {
     public code: string;
     public name: string;
     public back_color: string;
@@ -27,7 +29,7 @@ export class DisplayCode implements IDisplayCode {
             ? other .display_order : 0;
     }
 
-    compareTo(other: IDisplayCode): number {
+    public compareTo(other: IDisplayCode): number {
         if (this.display_order === other.display_order) {
             return (this.code < other.code) ? -1 : 1;
         }

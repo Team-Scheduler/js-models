@@ -1,3 +1,5 @@
+import { IComparable } from "../utilities/comparable";
+
 export interface IContactType {
     code: string;
     description: string;
@@ -5,7 +7,7 @@ export interface IContactType {
     display_order: number;
 }
 
-export class ContactType implements IContactType {
+export class ContactType implements IContactType, IComparable<IContactType> {
     public code: string;
     public description: string;
     public is_required: boolean;
@@ -21,7 +23,7 @@ export class ContactType implements IContactType {
             ? other.display_order : 1;
     }
 
-    compareTo(other: IContactType): number {
+    public compareTo(other: IContactType): number {
         if (this.display_order === other.display_order) {
             return (this.code < other.code) ? -1 : 1;
         }

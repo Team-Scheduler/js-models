@@ -1,17 +1,18 @@
+import { IComparable } from "../utilities/comparable";
 import { Holiday, IHoliday } from "./holidays";
 
 export interface ICompany {
     code: string;
     title: string;
     time_card_system: string;
-    holidays: IHoliday[];
+    holidays?: IHoliday[];
 }
 
-export class Company implements ICompany {
+export class Company implements ICompany, IComparable<ICompany> {
     public code: string;
     public title: string;
     public time_card_system: string;
-    public holidays: Holiday[];
+    public holidays?: Holiday[];
 
     constructor(other?: ICompany) {
         this.code = (other && other.code) ? other.code : "";
@@ -19,14 +20,15 @@ export class Company implements ICompany {
         this.time_card_system = (other && other.time_card_system) 
             ? other.time_card_system : "manual";
         this.holidays = new Array();
-        if (other && other.holidays && other.holidays.length > 0) {
+        if (other && other.holidays && other.holidays.length > 0 
+            && this.holidays) {
             other.holidays.forEach(hol => {
-                this.holidays.push(new Holiday(hol));
+                this.holidays?.push(new Holiday(hol));
             })
         }
     }
 
-    compareTo(other: ICompany): number {
+    public compareTo(other: ICompany): number {
         if (this.code === other.code) {
             return (this.title < other.title) ? -1 : 1;
         }
