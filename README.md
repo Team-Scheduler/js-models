@@ -147,3 +147,97 @@ and text colors to highlight the information to viewers.
     2.  Method:
         - CompareTo(another display code) - used in sorting the display codes
             based on display order, least first.
+
+Site
+----
+
+The site object represents a separate element of the team.  It may be 
+geographically or functionally separate, but is normally headed by a leader.
+The site contains various work centers and site-level positions and derives 
+its work from the team.  
+
+    1.  Members
+        - id (server designator for the site, used to identify the site within
+        the system)
+        - Code (short identifier for the site)
+        - Title (longer descriptor for the site)
+        - UTC-Difference (Universal Time Coordinate, Zulu Time, signifies the
+        base time zone use by aviation and other functions.  UTC is based on 
+        Greenwich Mean Time and the difference is the +/- 12 value for the 
+        number of time zones before or after Greenwich)
+        - Work Code List (The work codes assigned by the site for use.)
+        - Labor Code List (The list of labor codes, assigned to the site by
+        each company, to allow the site to track work accomplishment )
+        - Work Center List (The list of available work centers at the site where
+        site personnel will be assigned)
+        - Employee List (This list is provided to allow the server to pass a 
+        of employees assigned to the site)
+    2.  Methods
+        - CompareTo(another site) - used in sorting the team's sites based on
+        code/title.
+
+Workcenter
+----------
+
+The workcenter is the functional separation within a site to allow schedule
+allotment and minimum manning levels.  A work center can have multiple shifts 
+and/or positions to assign people to.
+
+    1. Members
+        - id (server designator for the work center, used to identifiy the work
+        center with the system)
+        - title (the string value for the work center, normally used to identify
+        the functionality of the work center.  Examples: Lead Section, GEOINT, ...)
+        - display order (this numeric value used for sorting the order to display
+        the site's list of work centers)
+        - position list (this list of positions/position objects assigned to 
+        a single work center.  Examples: Site Lead, Shift Lead,...)
+        - shift list (this list of shifts/shift objects allows site employees to
+        be give a work schedule based on codes)
+        - employee list (OPTIONAL) (This list allows the system to pass those
+        individual assigned to the work center)
+    2. Methods
+        - CompareTo(another site) - used in sorting the site's work centers by
+        the value of its display order value.
+
+Shift
+-----
+
+The shift is normally a time slot within a day for employees to be assigned 
+within.  In this application, shift assignments are completed by letter code
+within the employee assignment objects.
+
+    1.  Members
+        - id (server designator to identify this particular shift)
+        - title (a short descriptor for the shift.  Examples: Days, Mids, Swings)
+        - display order (a numeric value for the order to display the different
+        shifts within a work center)
+        - shift code list (a list of strings identifying the assignment codes
+        assigned to a shift)
+        - minimums (a numeric value used to help identify when coverage for a
+        particular shift is too low)
+        - employee list (OPTIONAL) (this list allows the system to pass those
+        individual assigned to a particular shift within the work center)
+    2.  Methods
+        - CompareTo(another site) - used in sorting the work center's shifts
+        based on a display order value.
+
+Position
+--------
+
+The position is normally used to assign an individual to a work center by the
+function they complete within the work center.
+
+    1.  Members
+        - id (server designator to identify this particular position)
+        - title (a short descriptor for the position an individual can be 
+        assigned to)
+        - IsDisplayed ( a boolean value to signify if a position is shown in a
+        normal schedule)
+        - display order (a numeric value for the order to display the different
+        shifts within a work center)
+        - employee list (OPTIONAL) (this list allows the system to pass those
+        individual assigned to a particular position within the work center)
+    2.  Methods
+        - CompareTo(another site) - used in sorting the position within the
+        work center.
