@@ -316,3 +316,9 @@ of site labor codes.
         codes within a period is the employee's primary labor code)
     2.  Methods
         - CompareTo(another site) - used in sorting the labor code within a list.
+
+Employee
+========
+
+Employee
+--------
