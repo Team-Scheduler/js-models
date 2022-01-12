@@ -332,16 +332,61 @@ of seven (7) because the schedule is based on number of weeks and also always
 starts on a Sunday.
 
     1.  Members
-        - id (server assigned value to identify this schedule within a list)
+        - id (identifer within the assignment, assigned by the assignment)
         - days in schedule (a numeric value (multiple of 7) to indicate the 
         total number of days the schedule uses.  It must correspond with the 
         number of workdays assigned)
-        - display order (a numeric value for the position with an assignment's
-        schedule list to be used if the assigment rotates schedules every XX days)
         - work day list (the list of work days which define the individual days
         within the schedule.  The number of work days must be equal to the 
         number of days assigned above.)
     2.  Methods
         - CompareTo (another schedule) - used for sorting the schedules within
         an assignment.
+        - setDaysInSchedule - will change the number of days in a schedule and
+        will check to ensure the number is a multiple of 7 but greater than zero,
+        then create the workdays in the array to correspond to this value.  Can
+        return an error for values not a multiple of 7 or equal to zero (0).
+        - setWorkDay - sets the workday values within the workday array 
+        corresponding to the day provided
 
+### Assignment
+
+This object is used to provide a set of schedules for a defined period of time.
+An end date in the year 9999 is to signify a schedule that doesn't have an end,
+only one of the employee's assignments may be open ended at any time.
+
+    1.  Members
+        - id (a server provided designator for the assigment)
+        - start date (the date the assignment goes into affect.  The default
+        value is a zero date.)
+        - end date (the last day the assignment is in affect.  The default value
+        is assigned as 31 Dec 9999 and considered open ended.)
+        - site (A string value for the site, normally the site code from the
+        team object)
+        - days in rotation (a numeric value to show the number of days between
+        changes in the schedules in the assignment)
+        - job title (a string value for the employee's job title during the
+        period of the assignment)
+        - schedules (a list of schedule which hold the work days)
+    2.  Methods
+        - CompareTo(another assignment) - used to sort assignments based on 
+        start and end dates.
+        - AddSchedule(number of days) - Add another schedule with the number
+        of days in the workday list.
+        - IsActiveOnDate(date) - provides a boolean value to show whether this
+        assignment is active (between the start and end dates).
+        - IsActiveDuringPeriod(date, date) - provides a boolean value to show
+        whether this assignment is active during any date in the period defined
+        by the two dates given.
+        - GetSchedule(date) - provides the schedule object from the list of
+        schedules based on the date compared to the assignment start date and
+        the number of days in the rotation.
+        - GetWorkday(date) - provides the workday object from the list of 
+        schedules, using the schedule provided in the GetSchedule method and the
+        day calculated within the schedule.
+        - GetWorkcenterForPeriod(date, date) - provides the identifier and the
+        number of days in that workcenter (whichever is greatest amount of days).
+        Both values are provided in case several assignments are valid in the
+        period.
+        - GetStandardDailyHours() - provides the greatest number of hours worked
+        in the default or first schedule of the assignment's schedule list.
