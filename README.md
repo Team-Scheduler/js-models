@@ -55,14 +55,11 @@ Leave data.  The two exceptions are in separate collections due to the probable
 data size.  It is assumed that the server will compile the work and leave data, 
 from the separate collections into a composite object to transfer.
 
-Models
-======
+# Models
 
-Team
-====
+## Team
 
-Team
-----
+### Team
 
 The team object consists of an identifier and name/title for the team, plus 
 arrays of objects for the team's associated data: Companies and company holidays,
@@ -82,8 +79,7 @@ model description, below).
         - Sites
     2. Methods:
 
-Company
--------
+### Company
 
 The company object consists of a code and title, plus a reference to the type
 of time card system used for ingesting time card data.  Available time card 
@@ -99,8 +95,7 @@ all of the holidays an employee can use as days off within a calendar year.
         - CompareTo(another company) - used in sorting the team's companies
             based on code and title, alphabetically.
 
-Holiday
--------
+### Holiday
 
 The holiday object consists of a company code and title for the holiday, a list
 of actual/reference dates for the holiday (one per year), and display order 
@@ -115,8 +110,7 @@ property to allow the company to sort the holidays in a particular order.
         - CompareTo(another holiday) - used in sorting the company's holidays
             based on display order, least first.
 
-ContactType
------------
+### ContactType
 
 This contact type object is used to create a list of the various ways a member
 of the team (or outside) can contact another member.  This could be a type of 
@@ -132,8 +126,7 @@ phone number, email address or other...
         - CompareTo(another contact type) - used in sorting the contact types
             based on display order, least first.
 
-DisplayCode
------------
+### DisplayCode
 
 This display code object is used to define the viewing color scheme for anything
 schedule related.  The various codes can be displayed using differing background
@@ -151,11 +144,9 @@ and text colors to highlight the information to viewers.
         - CompareTo(another display code) - used in sorting the display codes
             based on display order, least first.
 
-Site
-====
+## Site
 
-Site
-----
+### Site
 
 The site object represents a separate element of the team.  It may be 
 geographically or functionally separate, but is normally headed by a leader.
@@ -182,8 +173,7 @@ its work from the team.
         - CompareTo(another site) - used in sorting the team's sites based on
         code/title.
 
-Workcenter
-----------
+### Workcenter
 
 The workcenter is the functional separation within a site to allow schedule
 allotment and minimum manning levels.  A work center can have multiple shifts 
@@ -206,8 +196,7 @@ and/or positions to assign people to.
         - CompareTo(another site) - used in sorting the site's work centers by
         the value of its display order value.
 
-Shift
------
+### Shift
 
 The shift is normally a time slot within a day for employees to be assigned 
 within.  In this application, shift assignments are completed by letter code
@@ -228,8 +217,7 @@ within the employee assignment objects.
         - CompareTo(another site) - used in sorting the work center's shifts
         based on a display order value.
 
-Position
---------
+### Position
 
 The position is normally used to assign an individual to a work center by the
 function they complete within the work center.
@@ -248,8 +236,7 @@ function they complete within the work center.
         - CompareTo(another site) - used in sorting the position within the
         work center.
 
-WorkCode
---------
+### WorkCode
 
 This workcode class is used to provide a standard start time for a work code
 the site is using for scheduling.
@@ -261,8 +248,7 @@ the site is using for scheduling.
     2.  Methods
         - CompareTo(another site) - used in sorting the workcode within a list.
 
-Labor Codes
-===========
+## Labor Codes
 
 Labor Codes are defined by a company to record contract hours completed.  The 
 standard used, in this application, identifies a labor code using a charge 
@@ -271,8 +257,7 @@ code.  Labor Codes are assigned by the team to sites and employees.  This allows
 the site to monitor its portion of contract completion.  Two classes are provided 
 for labor code use/definition, one for site and another for employee.
 
-SiteLaborCode
--------------
+### SiteLaborCode
 
 The site labor code allows the site to define additional information for reports
 and other uses, such as contract specific or minimum number of employees assigned
@@ -301,8 +286,7 @@ to a labor code within the site.
     2.  Methods
         - CompareTo(another site) - used in sorting the labor code within a list.
 
-EmployeeLaborCode
------------------
+### EmployeeLaborCode
 
 The employee labor code allows a site labor code to be assigned to an employee.  
 It allows a forecast of hours to be compiled for an employee within the list
@@ -312,13 +296,52 @@ of site labor codes.
         - charge number (the string value used as part of the labor code's key)
         - extension (the string value for the second part of the labor code's key)
         - company id (the identifier for the company assigning the labor code)
-        - is_primary (a boolean flag to signify whether or not multiple labor
-        codes within a period is the employee's primary labor code)
     2.  Methods
         - CompareTo(another site) - used in sorting the labor code within a list.
 
-Employee
-========
+## Employee
 
-Employee
---------
+### Employee
+
+### Workday
+
+The work day defines a day of work within a schedule.  It consists of the day id
+within the schedule starting with 1, the work center, work code, starting time 
+and the number of hours working on that day.
+
+    1.  Members
+        - day (an integer identifier for the day of the schedule, starting with
+        1 and continuing to the total number of days in the schedule)
+        - work center (an identifier used to show the work center, if any, the
+        individual is working at on the day indicated)
+        - work code (a string code, letter, used to identify the shift the 
+        individual is working that day)
+        - start hour (a numeric value (0-23) to indicate the individual projected
+        actual start hour, -1 is used on days normally off.)
+        - hours worked (a numeric value to indicate the number of hours expected
+        to be worked by the individual on that day)
+    2.  Methods
+        - CompareTo (another work day) - used in sorting work days within a
+        schedule.
+
+### Schedule
+
+This object signifies a specified number of days which an individual rotates 
+through for his/her projected schedule.  The number of days must be a multiple
+of seven (7) because the schedule is based on number of weeks and also always 
+starts on a Sunday.
+
+    1.  Members
+        - id (server assigned value to identify this schedule within a list)
+        - days in schedule (a numeric value (multiple of 7) to indicate the 
+        total number of days the schedule uses.  It must correspond with the 
+        number of workdays assigned)
+        - display order (a numeric value for the position with an assignment's
+        schedule list to be used if the assigment rotates schedules every XX days)
+        - work day list (the list of work days which define the individual days
+        within the schedule.  The number of work days must be equal to the 
+        number of days assigned above.)
+    2.  Methods
+        - CompareTo (another schedule) - used for sorting the schedules within
+        an assignment.
+

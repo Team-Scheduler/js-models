@@ -7,5 +7,4 @@ export * from "./site/site";
 export * from "./site/workcode";
 export * from "./site/laborcode";
 export * from "./site/workcenter";
-
 export * from './employee/employee';

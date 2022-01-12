@@ -6,10 +6,6 @@ export interface ILaborCode {
     company_id: string;
 }
 
-export interface IEmployeeLaborCode extends ILaborCode {
-    is_primary: boolean;
-}
-
 export interface ISiteLaborCode extends ILaborCode {
     division: string;
     clin: string;
@@ -24,20 +20,18 @@ export interface ISiteLaborCode extends ILaborCode {
     end_date: Date;
 }
 
-export class EmployeeLaborCode implements IEmployeeLaborCode, IComparable<ILaborCode> {
+export class EmployeeLaborCode implements ILaborCode, IComparable<ILaborCode> {
     public charge_number: string;
     public extension: string;
     public company_id: string;
-    public is_primary: boolean;
 
-    constructor(other?: IEmployeeLaborCode) {
+    constructor(other?: ILaborCode) {
         this.charge_number = (other) ? other.charge_number : "";
         this.extension = (other) ? other.extension : "";
         this.company_id = (other) ? other.company_id : "";
-        this.is_primary = (other) ? other.is_primary : false;
     }
 
-    compareTo(other: ILaborCode): number {
+    compareTo(other: EmployeeLaborCode): number {
         if (this.charge_number === other.charge_number) {
             return (this.extension < other.extension) ? -1 : 1;
         }
@@ -78,7 +72,7 @@ export class SiteLaborCode implements ISiteLaborCode, IComparable<ILaborCode> {
         this.end_date = (other) ? other.end_date : new Date(0);
     }
 
-    compareTo(other: ILaborCode): number {
+    compareTo(other: SiteLaborCode): number {
         if (this.charge_number === other.charge_number) {
             return (this.extension < other.extension) ? -1 : 1;
         }
