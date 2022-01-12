@@ -390,3 +390,34 @@ only one of the employee's assignments may be open ended at any time.
         period.
         - GetStandardDailyHours() - provides the greatest number of hours worked
         in the default or first schedule of the assignment's schedule list.
+
+### Variation
+
+This object represents a special type of assignment, specifically an assignment
+variation.  A variation, for the same date, supercedes a regular assignment when 
+determining an employee's work schedule.  The variation is normally a short term
+change to the normal assignment, like working mids for a week, month or so and 
+when the employee returns to normal work, he/she will resume the previously used
+assignment to determine their respective schedule.  A variation can only have 
+one schedule but the schedule can have any multiple of 7 for it's respective
+workdays.  A variation also can start and stop in mid-week, which allows the 
+start of the variation and the resumption of schedule on specified dates.
+
+    1.  Members
+        - id (a server designator for this variation)
+        - start date (the first day that the variation will start to supersede the 
+        current assigment)
+        - stop date (this last day the variation supersedes the current assignment)
+        - IsMids (a boolean flag to indicate that the variation is part of a 
+        rotating mids schedule)
+        - schedule (the schedule object for the variation, this must have a
+        multiple of 7 days, starting on Sunday)
+    2.  Methods
+        - CompareTo (another variation) - use in sorting variations for an
+        employee using the start and end dates.
+        - IsActive(date) - a boolean flag to indicate whether the variation is
+        applicable on the date.
+        - GetWorkday(date) - provides the Workday object for the date provided
+        - SetWorkday(day number, code string, workcenter-id string, 
+            start-hour number, hours-worked number) - sets the workday for the
+            day provided, with the rest of the information.
