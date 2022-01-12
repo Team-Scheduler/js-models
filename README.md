@@ -59,6 +59,9 @@ Models
 ======
 
 Team
+====
+
+Team
 ----
 
 The team object consists of an identifier and name/title for the team, plus 
@@ -147,6 +150,9 @@ and text colors to highlight the information to viewers.
     2.  Method:
         - CompareTo(another display code) - used in sorting the display codes
             based on display order, least first.
+
+Site
+====
 
 Site
 ----
@@ -241,3 +247,72 @@ function they complete within the work center.
     2.  Methods
         - CompareTo(another site) - used in sorting the position within the
         work center.
+
+WorkCode
+--------
+
+This workcode class is used to provide a standard start time for a work code
+the site is using for scheduling.
+
+    1.  Members
+        - Code (a string value for a team's shift code list)
+        - start time (a integer value (0 - 23) for the hour the code normally 
+        begins)
+    2.  Methods
+        - CompareTo(another site) - used in sorting the workcode within a list.
+
+Labor Codes
+===========
+
+Labor Codes are defined by a company to record contract hours completed.  The 
+standard used, in this application, identifies a labor code using a charge 
+number and an extension.  The combination of the two represents a single labor
+code.  Labor Codes are assigned by the team to sites and employees.  This allows
+the site to monitor its portion of contract completion.  Two classes are provided 
+for labor code use/definition, one for site and another for employee.
+
+SiteLaborCode
+-------------
+
+The site labor code allows the site to define additional information for reports
+and other uses, such as contract specific or minimum number of employees assigned
+to a labor code within the site.
+
+    1.  Members
+        - charge number (the string value used as part of the labor code's key)
+        - extension (the string value for the second part of the labor code's key)
+        - company id (the identifier for the company assigning the labor code)
+        - division (the department/sub-company, within the company, the labor is
+        being completed for)
+        - CLIN (Contract Line Number)
+        - SLIN (Section Line Number)
+        - WBS (?)
+        - Location (The site's location or the code for the location)
+        - minimums (The number of employees who will use this labor code at the
+        site.)
+        - Placecard for No Employee (a string value to be used in the schedule
+        when the minimum number of employees are not available for a labor code)
+        - Contract Hours per Employee (The number of hours assigned by the 
+        contract for each employee)
+        - IsExercise (a boolean flag meaning the labor code is additional hours
+        employees would use for a special project)
+        - Start Date (the first date the contract hours can be used)
+        - End Date (the last date the contract hours can be used)
+    2.  Methods
+        - CompareTo(another site) - used in sorting the labor code within a list.
+
+EmployeeLaborCode
+-----------------
+
+The employee labor code allows a site labor code to be assigned to an employee.  
+It allows a forecast of hours to be compiled for an employee within the list
+of site labor codes.
+
+    1.  Members
+        - charge number (the string value used as part of the labor code's key)
+        - extension (the string value for the second part of the labor code's key)
+        - company id (the identifier for the company assigning the labor code)
+        - is_primary (a boolean flag to signify whether or not multiple labor
+        codes within a period is the employee's primary labor code)
+    2.  Methods
+        - CompareTo(another site) - used in sorting the labor code within a list.
