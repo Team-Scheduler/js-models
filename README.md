@@ -421,3 +421,12 @@ start of the variation and the resumption of schedule on specified dates.
         - SetWorkday(day number, code string, workcenter-id string, 
             start-hour number, hours-worked number) - sets the workday for the
             day provided, with the rest of the information.
+
+### Leave
+
+This object is used to record a single leave using the combination of leave
+date and code.  This object is also used in the leave request to designate the
+codes to use on the various days of a leave request.
+
+    1.  Members
+    2.  Methods
