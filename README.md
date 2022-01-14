@@ -529,3 +529,49 @@ a string value with a date/time attached.
     2.  Methods
         - CompareTo (another comment) - used to sort the comments based on the
         date provided.
+
+### Employee's Company Information (CompanyInfo)
+
+This object represents the employee's company information which includes the
+company the employee works for and the identifier the company uses to identify
+the employee.  Optional fields are available to annotate an alternate identifier,
+a company division, cost center and any rank indicator.
+
+    1.  Members
+        - Company Code - the string value for the company within the team the
+        employee works for
+        - Company Employee ID - The string value which represents the identifier
+        his/her company uses to identify the employee.
+        - Company Alternate ID (Optional) - A string value for an alternate 
+        identifier used within the company.
+        - Division (Optional) - a string value for a division within the company
+        the employee works within.
+        - Cost Center (Optional) - a string value for the identified financial
+        cost center.
+        - Rank (Optional) - a string value for the employee's rank within the
+        company.
+    2.  Methods
+        (None)
+
+### Name
+
+This object represents an employee's full name.  It is used to record all 
+portions of their name first, middle, last, name suffix (Jr, Sr, III. etc) and
+nick name used.
+
+    1.  Members
+        - First - the string value for the employee's first or given name.
+        - Middle (Optional) - the string value to record a middle name, if 
+        applicable.
+        - Last - the string value for the employee's surname or family name.
+        - Suffix (Optional) - the string value to record a name suffix, if 
+        applicable.
+        - Nick Name (Optional) - the string value for a single nickname the 
+        employee may use.
+    2.  Methods
+        - fullName() - provides a composite string from the value given to 
+        include the optional middle and name suffix, but not the nickname.
+        - lastFirst() - provides a composite string of the employee's last and
+        first names.
+        - lastFirstFull() - provides the employee's full name to include any
+        optional middle name in the format last, first middle.
