@@ -4,7 +4,8 @@ import { IComparable } from "../../utilities/comparable";
 export enum Statuses {
     REQUESTED,
     APPROVED,
-    ACTUAL
+    ACTUAL,
+    DELETED
 }
 
 export interface ILeave {

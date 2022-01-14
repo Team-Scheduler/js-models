@@ -429,4 +429,103 @@ date and code.  This object is also used in the leave request to designate the
 codes to use on the various days of a leave request.
 
     1.  Members
+        - id (a server designator this leave)
+        - leave_date (the date the leave was, or will be, taken)
+        - code (the work code reference for the type of leave taken, or to be
+        taken)
+        - hours (the numeric (float) value for the decimal hours for the leave)
+        - status (Using the Statuses enumerator to indicate the leave is,
+        requested, approved, or actual (from timecard data).  Requested and 
+        approved leave can be changed.)
+        - leave-request-id (a reference to the server designator for the leave
+        request the leave is derived from.)
     2.  Methods
+        - CompareTo (another leave) - used in sorting the leaves using a 
+        combination of leave date and status.
+
+### Statuses (Enumerator)
+
+This enumerator is used to designate the current status of the leave object, 
+and the leave itself.  It holds the values of:
+    - Requested - created and/or modified by employee, but not approved by a
+    supervisor.
+    - Approved - A supervisor has approved the leave request/dates.  A 
+    modification will push the status back to requested.
+    - Actual - This status is based on actual (timecard data) or entry by a
+    supervisor.
+    - Deleted - This request is to be deleted or disregarded by the system as
+    not needed.
+
+### LeaveBalance
+
+This object is used to provide the annual (calendar year) beginning leave 
+balances for an employee.  The annual balances are provided by two values: 
+those hours carried forward from the previous year, and the amount of leave the
+employee is provided for the current calendar year.
+
+    1.  Members
+        - year (a numeric designator (4-digit value)
+        - carryover (the numeric value (float) for the number of hours (decimal)
+        the employee carries into this calendar year)
+        - annual_leave (the numeric value (float) for the number of hours 
+        (decimal) the employee earns from the company for the calendar year)
+    2.  Method
+        - CompareTo (another leave balance) - used to sort an employee's leave
+        balance objects based on calendar year
+
+### LeaveRequest
+
+This object represent a request for a leave period and allows for the individual
+days to be designated individually to allow the employee to combine regular
+paid time off with holidays in the same request.  
+
+    1.  Members
+        - id (a server designator for this leave request)
+        - dates
+            - request date - the date this request was initially created
+            - start date - the first day of the leave period (doesn't have to
+            be a work day).
+            - end date - the last day of the leave period or the last day 
+            before the employee returns to work.
+            - updated_at - the last update to the leave request
+            - delete_request - the date the employee requests deletion rather 
+            than approval.
+        - site-id - The reference identifier for the site the employee is at 
+        when the leave will be taken.
+        - employeeID - the reference identifier for the employee
+        - approvedBy - the reference identifier for the supervisor approving
+        the leave request.
+        - status - Using the Statuses enumerator to indicate the leave is,
+        requested, approved, or actual (from timecard data).  Requested and 
+        approved leave can be changed.
+        - comments - Each event in the leave request must be accompanied by a
+        manual or automatic comment to this array of LeaveRequestComments.
+        - days - this array will hold a list of leave objects from the start
+        to end dates, to allow the employee to designate the individual days 
+        with leave codes and hours.  These will be converted on approval to 
+        leave objects.
+    2.  Methods
+        - CompareTo (another leave request) - used to sort the leave requests
+        based on start, request and end dates.
+        - SetDates (date, date) -  Sets the start and end dates, plus creates 
+        the leave objects in the day array, if not already in the array.
+        - SetStartDate(date) -  Sets the start date, and will set the end date 
+        to the start date if the end date is before the start date, then resets
+        the day array to match these dates.
+        - SetEndDate(date) - Sets the end date, and will set the start date to
+        the end date if the start date is after the end date, then will reset
+        the day array to match these dates.
+        - SetDay(date, code, hours) - This will set the date's leave object from
+        the days array with the code and hours given.
+
+### LeaveRequestComment
+
+This object represents a single comment within a leave request.  The comment is
+a string value with a date/time attached.
+
+    1.  Members
+        - comment-date - the date/time for the comment.
+        - comment - the string value for the comment.
+    2.  Methods
+        - CompareTo (another comment) - used to sort the comments based on the
+        date provided.

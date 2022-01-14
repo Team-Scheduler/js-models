@@ -35,6 +35,7 @@ export interface ILeaveRequest {
     comments?: LeaveRequestComment[];
     days?: Leave[];
     employeeID?: ObjectId;
+    approvedBy?: ObjectId;
 }
 
 export class LeaveRequest implements ILeaveRequest, IComparable<ILeaveRequest> {
@@ -49,6 +50,7 @@ export class LeaveRequest implements ILeaveRequest, IComparable<ILeaveRequest> {
     public comments?: LeaveRequestComment[] | undefined;
     public days?: Leave[] | undefined;
     public employeeID?: ObjectId | undefined;
+    public approvedBy?: ObjectId | undefined;
 
     constructor(other?: ILeaveRequest) {
         this.id = (other && other.id) ? other.id : undefined;
@@ -73,7 +75,10 @@ export class LeaveRequest implements ILeaveRequest, IComparable<ILeaveRequest> {
                 this.days.push(new Leave(day));
             }
         }
-        this.employeeID = (other && other.employeeID) ? other.employeeID : undefined;
+        this.employeeID = (other && other.employeeID) 
+            ? other.employeeID : undefined;
+        this.approvedBy = (other && other.approvedBy) 
+            ? other.approvedBy : undefined;
     }
 
     compareTo(other: LeaveRequest): number {
