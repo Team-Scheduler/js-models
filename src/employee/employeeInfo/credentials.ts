@@ -91,7 +91,7 @@ export class Credentials implements ICredentials {
 
     getToken(): string {
         let answer = Math.floor(Math.random() * 999999) + 1
-        return Number(answer).toString();
+        return Number(answer).toString().padStart(6, "0");
     }
 
     Verify(token: string): boolean {
