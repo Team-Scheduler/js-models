@@ -54,6 +54,12 @@ contained document in the database, with two exceptions: 1) Work data and 2)
 Leave data.  The two exceptions are in separate collections due to the probable
 data size.  It is assumed that the server will compile the work and leave data, 
 from the separate collections into a composite object to transfer.
+5.  A purge function must be included in the server-side code to purge old 
+employee leaves, leave requests, leave balances, and work not needed for a team's
+contract obligations.  Additionally, out-of-date work assignments and variations
+need to be purged from the database.  The EmployeeAssignment collection will be
+considered for employment history for all employees and not purged for a minimum
+of 5 years.
 
 # Models
 
@@ -298,6 +304,27 @@ of site labor codes.
         - company id (the identifier for the company assigning the labor code)
     2.  Methods
         - CompareTo(another site) - used in sorting the labor code within a list.
+
+### EmployeeAssignment
+
+This interface and class is used to record a employee's employment history 
+within the team and site.  An employee can only be assigned to a single site in
+the time line, but can be used in transfers between sites.  It will be used to
+store where an employee is assigned within a team and help in the compilation of
+employees for a team and/or site.
+
+    1.  Members
+        - id - the server designated value to identify the object.
+        - teamID - the object reference to the employee's team
+        - siteID - the object reference to the employee's site
+        - employeeID - the object reference to the employee
+        - start_date - the date the employee starts work at a site.
+        - end_date (optional) - the date the employee stops working at a site.
+        - departure_reason (optional) - a string value for a brief reason the
+        employee stopped working at a site.
+    2.  Methods
+        - CompareTo(another employee assignment) - used to sort employeeAssigment
+        objects within an array by team, site, then start date.
 
 ## Employee
 
