@@ -598,7 +598,6 @@ nick name used.
     2.  Methods
         - fullName() - provides a composite string from the value given to 
         include the optional middle and name suffix, but not the nickname.
-        - lastFirst() - provides a composite string of the employee's last and
-        first names.
-        - lastFirstFull() - provides the employee's full name to include any
-        optional middle name in the format last, first middle.
+        - lastFirst(boolean) - provides a composite string of the employee's last and
+        first names. A true boolean value in the parameter will add the middle
+        name to the previous, if the employee has a middle name.

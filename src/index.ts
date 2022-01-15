@@ -16,3 +16,4 @@ export * from './employee/assignments/workday';
 export * from './employee/leaves/leave';
 export * from './employee/leaves/leaveBalance';
 export * from './employee/leaves/leaveRequest';
+export * from './employee/employeeInfo/companyInfo';

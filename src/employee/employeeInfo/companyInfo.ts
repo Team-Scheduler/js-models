@@ -64,7 +64,10 @@ export class Name implements IName {
         return answer;
     }
 
-    lastFirst(): string {
+    lastFirst(bFull?: boolean): string {
+        if (bFull && this.middle) {
+            return `${this.last}, ${this.first} ${this.middle}`;
+        }
         return `${this.last}, ${this.first}`;
     }
 
