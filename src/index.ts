@@ -17,3 +17,4 @@ export * from './employee/leaves/leave';
 export * from './employee/leaves/leaveBalance';
 export * from './employee/leaves/leaveRequest';
 export * from './employee/employeeInfo/companyInfo';
+export * from './employee/employeeInfo/credentials';

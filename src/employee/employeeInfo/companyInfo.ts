@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+import { SpecialtyLevels } from "../../team/specialties";
 import { IComparable } from "../../utilities/comparable";
 
 export interface ICompanyInfo {
@@ -77,5 +79,35 @@ export class Name implements IName {
             answer += ` ${this.middle}`;
         }
         return answer;
+    }
+}
+
+export interface IContact {
+    code: string;
+    info: string;
+}
+
+export class Contact implements IContact {
+    public code: string;
+    public info: string;
+
+    constructor(other?: IContact) {
+        this.code = (other) ? other.code : "";
+        this.info = (other) ? other.info : "";
+    }
+}
+
+export interface IEmployeeSpecialty {
+    code: string;
+    level: SpecialtyLevels;
+}
+
+export class EmployeeSpecialty implements IEmployeeSpecialty {
+    public code: string;
+    public level: SpecialtyLevels;
+
+    constructor(other?: IEmployeeSpecialty) {
+        this.code = (other) ? other.code : "";
+        this.level = (other) ? other.level : SpecialtyLevels.NONE;
     }
 }

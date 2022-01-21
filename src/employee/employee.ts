@@ -1,9 +1,17 @@
 import { ObjectId } from "mongodb";
+import { IAssignment, ICompanyInfo, IContact, ICredentials, IEmployeeSpecialty, IName, IVariation } from "..";
 import { IComparable } from "../utilities/comparable";
 
 export interface IEmployee {
     _id?: ObjectId;
     position_assigned?: ObjectId;
+    assignments?: IAssignment[];
+    variations?: IVariation[];
+    name: IName;
+    companyinfo: ICompanyInfo;
+    creds: ICredentials;
+    contacts: IContact[];
+    specialties?: IEmployeeSpecialty[];
 }
 
 export class Employee implements IEmployee, IComparable<IEmployee> {

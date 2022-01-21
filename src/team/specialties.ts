@@ -56,3 +56,10 @@ export class SpecialtyGroup
         return (this.title.toLowerCase() < other.title.toLowerCase()) ? -1 : 1;
     }
 }
+
+export enum SpecialtyLevels {
+    NONE,
+    INTRAINING,
+    QUALIFIED,
+    EXPERT
+}
