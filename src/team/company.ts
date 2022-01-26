@@ -1,3 +1,4 @@
+import { IWorkCode, WorkCode } from "../site/workcode";
 import { IComparable } from "../utilities/comparable";
 import { Holiday, IHoliday } from "./holidays";
 
@@ -6,6 +7,7 @@ export interface ICompany {
     title: string;
     time_card_system: string;
     holidays?: IHoliday[];
+    workcodes?: IWorkCode[];
 }
 
 export class Company implements ICompany, IComparable<ICompany> {
@@ -13,6 +15,7 @@ export class Company implements ICompany, IComparable<ICompany> {
     public title: string;
     public time_card_system: string;
     public holidays?: Holiday[];
+    public workcodes?: IWorkCode[] | undefined;
 
     constructor(other?: ICompany) {
         this.code = (other && other.code) ? other.code : "";
@@ -25,6 +28,12 @@ export class Company implements ICompany, IComparable<ICompany> {
             other.holidays.forEach(hol => {
                 this.holidays?.push(new Holiday(hol));
             })
+        }
+        this.workcodes = [];
+        if (other && other.workcodes) {
+            for (let wc of other.workcodes) {
+                this.workcodes.push(new WorkCode(wc));
+            }
         }
     }
 

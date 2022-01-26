@@ -8,6 +8,7 @@ export interface IVariation {
     start_date: Date;
     end_date: Date;
     is_mids: boolean;
+    site: string;
     schedule: ISchedule;
 }
 
@@ -16,6 +17,7 @@ export class Variation implements IVariation, IComparable<IVariation> {
     public start_date: Date;
     public end_date: Date;
     public is_mids: boolean;
+    public site: string;
     public schedule: Schedule;
 
     constructor(other?: IVariation) {
@@ -23,6 +25,7 @@ export class Variation implements IVariation, IComparable<IVariation> {
         this.start_date = (other) ? other.start_date : new Date(0);
         this.end_date = (other) ? other.end_date : new Date(0);
         this.is_mids = (other) ? other.is_mids : false;
+        this.site = (other) ? other.site : "";
         if (other) {
             this.schedule = new Schedule(other.schedule);
         } else {

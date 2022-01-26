@@ -7,6 +7,7 @@ export interface IWorkDay {
     start_hour: number;
     work_code: string;
     hours_worked: number;
+    isLeave?: boolean;
 }
 
 export class WorkDay implements IWorkDay, IComparable<IWorkDay> {
@@ -15,6 +16,7 @@ export class WorkDay implements IWorkDay, IComparable<IWorkDay> {
     public start_hour: number;
     public work_code: string;
     public hours_worked: number;
+    public isLeave?: boolean;
 
     constructor(other?: IWorkDay) {
         this.day = (other) ? other.day : 0;
@@ -23,6 +25,7 @@ export class WorkDay implements IWorkDay, IComparable<IWorkDay> {
         this.start_hour = (other) ? other.start_hour : -1;
         this.work_code = (other) ? other.work_code : "";
         this.hours_worked = (other) ? other.hours_worked : 0;
+        this.isLeave = (other && other.isLeave) ? other.isLeave : false;
     }
 
     compareTo(other: WorkDay): number {

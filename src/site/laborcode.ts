@@ -20,15 +20,28 @@ export interface ISiteLaborCode extends ILaborCode {
     end_date: Date;
 }
 
-export class EmployeeLaborCode implements ILaborCode, IComparable<ILaborCode> {
+export interface IEmployeeLaborCode extends ILaborCode {
+    charge_number: string;
+    extension: string;
+    company_id: string;
+    start_date: Date;
+    end_date: Date;
+}
+
+export class EmployeeLaborCode 
+    implements IEmployeeLaborCode, IComparable<ILaborCode> {
     public charge_number: string;
     public extension: string;
     public company_id: string;
+    public start_date: Date;
+    public end_date: Date;
 
-    constructor(other?: ILaborCode) {
+    constructor(other?: IEmployeeLaborCode) {
         this.charge_number = (other) ? other.charge_number : "";
         this.extension = (other) ? other.extension : "";
         this.company_id = (other) ? other.company_id : "";
+        this.start_date = (other) ? new Date(other.start_date) : new Date(0);
+        this.end_date = (other) ? new Date(other.end_date) : new Date(0);
     }
 
     compareTo(other: EmployeeLaborCode): number {
