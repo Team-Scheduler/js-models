@@ -1,0 +1,928 @@
+{
+    "teams": [
+        {
+            "name": "Master Team",
+            "companies": [],
+            "displayCodes":[
+                {
+                    "code":"E",
+                    "name":"Early Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 1
+                },
+                {
+                    "code":"D",
+                    "name":"Day Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 2
+                },
+                {
+                    "code":"A",
+                    "name":"Activity/Mission Shift",
+                    "is_leave": false,
+                    "back_color":"ffcc00",
+                    "text_color":"cc0000",
+                    "display_order": 3
+                },
+                {
+                    "code":"O",
+                    "name":"Office Hours",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 4
+                },
+                {
+                    "code":"S",
+                    "name":"Swing Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 5
+                },
+                {
+                    "code":"L",
+                    "name":"Late Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 6
+                },
+                {
+                    "code":"M",
+                    "name":"Mid Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 7
+                },
+                {
+                    "code":"TW",
+                    "name":"Telework",
+                    "is_leave": false,
+                    "back_color":"66ff66",
+                    "text_color":"000000",
+                    "display_order": 8
+                },
+                {
+                    "code":"BR",
+                    "name":"Bereavement",
+                    "is_leave": true,
+                    "back_color":"990099",
+                    "text_color":"ffffff",
+                    "display_order": 10
+                },
+                {
+                    "code":"H",
+                    "name":"Holiday",
+                    "is_leave": true,
+                    "back_color":"0000ff",
+                    "text_color":"ffffff",
+                    "display_order": 11
+                },
+                {
+                    "code":"V",
+                    "name":"Vacation",
+                    "is_leave": true,
+                    "back_color":"008000",
+                    "text_color":"ffffff",
+                    "display_order": 12
+                },
+                {
+                    "code":"P",
+                    "name":"PTO",
+                    "is_leave": true,
+                    "back_color":"008000",
+                    "text_color":"ffffff",
+                    "display_order": 13
+                },
+                {
+                    "code":"J",
+                    "name":"Jury Duty",
+                    "is_leave": true,
+                    "back_color":"ff6600",
+                    "text_color":"000000",
+                    "display_order": 14
+                },
+                {
+                    "code":"SD",
+                    "name":"Short-Term Disability",
+                    "is_leave": true,
+                    "back_color":"993300",
+                    "text_color":"ffffff",
+                    "display_order": 15
+                },
+                {
+                    "code":"LD",
+                    "name":"Long-Term Disability",
+                    "is_leave": true,
+                    "back_color":"333300",
+                    "text_color":"ffffff",
+                    "display_order": 16
+                },
+                {
+                    "code":"ML",
+                    "name":"Military Duty",
+                    "is_leave": true,
+                    "back_color":"ffcc00",
+                    "text_color":"000000",
+                    "display_order": 17
+                },
+                {
+                    "code":"G",
+                    "name":"Guard Duty",
+                    "is_leave": true,
+                    "back_color":"ffcc00",
+                    "text_color":"000000",
+                    "display_order": 18
+                },
+                {
+                    "code":"PL",
+                    "name":"Parental Leave",
+                    "is_leave": true,
+                    "back_color":"ff8080",
+                    "text_color":"000000",
+                    "display_order": 19
+                },
+                {
+                    "code":"TD",
+                    "name":"Temporary Duty",
+                    "is_leave": true,
+                    "back_color":"33cccc",
+                    "text_color":"000000",
+                    "display_order": 20
+                },
+                {
+                    "code":"OL",
+                    "name":"Other Leave",
+                    "is_leave": true,
+                    "back_color":"ff6600",
+                    "text_color":"000000",
+                    "display_order": 21
+                },
+                {
+                    "code":"UP",
+                    "name":"Unpaid Leave",
+                    "is_leave": true,
+                    "back_color":"ff0000",
+                    "text_color":"ffffff",
+                    "display_order": 22
+                }
+            ],
+            "specialtyGroups":[],
+            "sites":[
+                {
+                    "code":"master",
+                    "title":"Master",
+                    "utc_difference": 0,
+                    "work_codes":[],
+                    "labor_codes": [],
+                    "workcenters": [],
+                    "employees":[
+                        {
+                            "code": "",
+                            "teamid": "",
+                            "email":"teams@team-scheduler.com",
+                            "roles":["master:master"],
+                            "updatedon":"1970-01-01 00:00:00",
+                            "name":{
+                                "first":"Master",
+                                "middle":"",
+                                "last":"Scheduler",
+                                "suffix":""
+                            },
+                            "creds":{
+                                "salt":"",
+                                "password":"InitialPassword",
+                                "mustchange":true,
+                                "expires":"1970-01-01 00:00:00",
+                                "badattempts":0,
+                                "verified":"2021-03-26 15:00:00",
+                                "verificationToken":"",
+                                "resetToken":"",
+                                "resetTokenExpires":"1970-01-01 00:00:00"
+                            },
+                            "company":{
+                                "companyid":"raytheon",
+                                "employeeid":"",
+                                "alternateid":"",
+                                "division":"",
+                                "costcenter":"",
+                                "rank":""
+                            },
+                            "assignments":[
+                                {
+                                    "code":1,
+                                    "startdate":"1970-01-01 00:00:00",
+                                    "enddate":"9999-12-31 00:00:00",
+                                    "siteid":"master",
+                                    "jobTitle":"Master Scheduler",
+                                    "rotationDays":0,
+                                    "schedules":[]
+                                }
+                            ],
+                            "variations":[],
+                            "specialties":[],
+                            "contacts":[],
+                            "labor_codes":[],
+                            "leaveBalances":[],
+                            "leaves":[],
+                            "leaveRequests":[],
+                            "work":[]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code":"",
+            "name":"DMSMP",
+            "companies":[
+                {
+                    "code":"caci",
+                    "title":"CACI",
+                    "timesystem": "",
+                    "holidays":[]
+                },
+                {
+                    "code":"lm",
+                    "title":"Lockheed-Martin",
+                    "timesystem": "",
+                    "holidays":[]
+                },
+                {
+                    "code":"raytheon",
+                    "title":"Raytheon Technologies",
+                    "timesystem": "SAP",
+                    "holidays":[
+                        {
+                            "code":"H1",
+                            "title":"New Years Day",
+                            "display_order": 1,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H2",
+                            "title":"Martin Luther King Day",
+                            "display_order": 2,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H3",
+                            "title":"Presidents Day",
+                            "display_order": 3,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H4",
+                            "title":"Memorial Day",
+                            "display_order": 4,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H5",
+                            "title":"Independence Day",
+                            "display_order": 5,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H6",
+                            "title":"Labor Day",
+                            "display_order": 6,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H7",
+                            "title":"Columbus Day",
+                            "display_order": 7,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H8",
+                            "title":"Veterans Day",
+                            "display_order": 8,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H9",
+                            "title":"Thanksgiving Day",
+                            "display_order": 9,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"H10",
+                            "title":"Christmas Day",
+                            "display_order": 10,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"F1",
+                            "title":"Floater 1",
+                            "display_order": 11,
+                            "actualdates":[]
+                        },
+                        {
+                            "code":"F2",
+                            "title":"Floater 2",
+                            "display_order": 12,
+                            "actualdates":[]
+                        }
+                    ]
+                }
+            ],
+            "displayCodes":[
+                {
+                    "code":"E",
+                    "name":"Early Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 1
+                },
+                {
+                    "code":"D",
+                    "name":"Day Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 2
+                },
+                {
+                    "code":"A",
+                    "name":"Activity/Mission Shift",
+                    "is_leave": false,
+                    "back_color":"ffcc00",
+                    "text_color":"cc0000",
+                    "display_order": 3
+                },
+                {
+                    "code":"O",
+                    "name":"Office Hours",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 4
+                },
+                {
+                    "code":"S",
+                    "name":"Swing Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 5
+                },
+                {
+                    "code":"L",
+                    "name":"Late Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 6
+                },
+                {
+                    "code":"M",
+                    "name":"Mid Shift",
+                    "is_leave": false,
+                    "back_color":"ffffff",
+                    "text_color":"000000",
+                    "display_order": 7
+                },
+                {
+                    "code":"TW",
+                    "name":"Telework",
+                    "is_leave": false,
+                    "back_color":"66ff66",
+                    "text_color":"000000",
+                    "display_order": 8
+                },
+                {
+                    "code":"BR",
+                    "name":"Bereavement",
+                    "is_leave": true,
+                    "back_color":"990099",
+                    "text_color":"ffffff",
+                    "display_order": 10
+                },
+                {
+                    "code":"H",
+                    "name":"Holiday",
+                    "is_leave": true,
+                    "back_color":"0000ff",
+                    "text_color":"ffffff",
+                    "display_order": 11
+                },
+                {
+                    "code":"V",
+                    "name":"Vacation",
+                    "is_leave": true,
+                    "back_color":"008000",
+                    "text_color":"ffffff",
+                    "display_order": 12
+                },
+                {
+                    "code":"P",
+                    "name":"PTO",
+                    "is_leave": true,
+                    "back_color":"008000",
+                    "text_color":"ffffff",
+                    "display_order": 13
+                },
+                {
+                    "code":"J",
+                    "name":"Jury Duty",
+                    "is_leave": true,
+                    "back_color":"ff6600",
+                    "text_color":"000000",
+                    "display_order": 14
+                },
+                {
+                    "code":"SD",
+                    "name":"Short-Term Disability",
+                    "is_leave": true,
+                    "back_color":"993300",
+                    "text_color":"ffffff",
+                    "display_order": 15
+                },
+                {
+                    "code":"Q",
+                    "name":"Quarantine",
+                    "is_leave": true,
+                    "back_color":"993300",
+                    "text_color":"ffffff",
+                    "display_order": 15
+                },
+                {
+                    "code":"LD",
+                    "name":"Long-Term Disability",
+                    "is_leave": true,
+                    "back_color":"333300",
+                    "text_color":"ffffff",
+                    "display_order": 16
+                },
+                {
+                    "code":"ML",
+                    "name":"Military Duty",
+                    "is_leave": true,
+                    "back_color":"ffcc00",
+                    "text_color":"000000",
+                    "display_order": 17
+                },
+                {
+                    "code":"G",
+                    "name":"Guard Duty",
+                    "is_leave": true,
+                    "back_color":"ffcc00",
+                    "text_color":"000000",
+                    "display_order": 18
+                },
+                {
+                    "code":"PL",
+                    "name":"Parental Leave",
+                    "is_leave": true,
+                    "back_color":"ff8080",
+                    "text_color":"000000",
+                    "display_order": 19
+                },
+                {
+                    "code":"TD",
+                    "name":"Temporary Duty",
+                    "is_leave": true,
+                    "back_color":"33cccc",
+                    "text_color":"000000",
+                    "display_order": 20
+                },
+                {
+                    "code":"OL",
+                    "name":"Other Leave",
+                    "is_leave": true,
+                    "back_color":"ff6600",
+                    "text_color":"000000",
+                    "display_order": 21
+                },
+                {
+                    "code":"UP",
+                    "name":"Unpaid Leave",
+                    "is_leave": true,
+                    "back_color":"ff0000",
+                    "text_color":"ffffff",
+                    "display_order": 22
+                }
+            ],
+            "specialtyGroups":[
+                {
+                    "code": "HB/LB",
+                    "title": "HB/LB Support",
+                    "areas": [
+                        
+                        {
+                            "code": "HB/LB Wks",
+                            "title": "HB/LB Workstation"
+                        },
+                        {
+                            "code": "HB/LB Infra",
+                            "title": "HB/LB Infrastructure"
+                        },
+                        {
+                            "code": "MT",
+                            "title": "Mission Support"
+                        },
+                        {
+                            "code": "CICS Admin",
+                            "title": "CICS Admin Support"
+                        },
+                        {
+                            "code": "CICS SW",
+                            "title": "CICS Software Support"
+                        },
+                        {
+                            "code": "PME12",
+                            "title": "PME12 Sensor Support"
+                        },
+                        {
+                            "code": "CETS",
+                            "title": "CETS Support"
+                        }
+                    ]
+                },
+                {
+                    "code":"GEOINT",
+                    "title": "GEOINT Support",
+                    "areas": [   
+                        {
+                            "code": "TMAN",
+                            "title": "TMAN Support"
+                        },
+                        {
+                            "code": "CrewComm",
+                            "title": "CREWCOMM Support"
+                        },
+                        {
+                            "code": "TNET",
+                            "title": "ThreatNet"
+                        },
+                        {
+                            "code": "MSNSPT",
+                            "title": "GEOINT Mission Support"
+                        },
+                        {
+                            "code": "PME3",
+                            "title": "PME3 Sensor Support"
+                        },
+                        {
+                            "code": "PME4",
+                            "title": "PME4 Sensor Support"
+                        },
+                        {
+                            "code": "10BSW",
+                            "title": "10B IMINT Software"
+                        },
+                        {
+                            "code": "10BInfra",
+                            "title": "10B IMINT Infrastructure"
+                        },
+                        {
+                            "code": "2ndImage",
+                            "title": "Secondary Imagery"
+                        }
+                    ]
+                },
+                {
+                    "code": "OA",
+                    "title": "Open Architecture",
+                    "areas": [
+                        {
+                            "code": "OAInfra",
+                            "title": "Open-Architecture Infrastructure"
+                        },
+                        {
+                            "code": "OASW",
+                            "title": "Open-Architecture Software"
+                        },
+                        {
+                            "code": "OAHA",
+                            "title": "Open-Architecture High-Altitude"
+                        },
+                        {
+                            "code": "OAMA",
+                            "title": "Open-Architecture Medium-Altitude"
+                        }
+                    ]
+                },
+                {
+                    "code": "other",
+                    "title": "Other Support",
+                    "areas": [
+                        {
+                            "code":"NCCT",
+                            "title":"NCCT Support"
+                        },
+                        {
+                            "code": "DSD",
+                            "title": "DSD"
+                        },
+                        {
+                            "code": "DGSTPED",
+                            "title": "DGS Production Operations Support"
+                        }
+                    ]
+                },
+                {
+                    "code": "site",
+                    "title": "Site Support",
+                    "areas": [
+                        {
+                            "code":"admin",
+                            "title": "Admin Support"
+                        },
+                        {
+                            "code":"lead",
+                            "title":"Leadership"
+                        }
+                    ]
+                }
+            ],
+            "contactTypes":[
+                {
+                    "code":"coemail",
+                    "description":"Company Email",
+                    "is_required": false,
+                    "display_order": 1
+                },
+                {
+                    "code":"nipremail",
+                    "description":"NIPRNET Email",
+                    "is_required": false,
+                    "display_order": 2
+                },
+                {
+                    "code":"sipremail",
+                    "description":"SIPRNET Email",
+                    "is_required": false,
+                    "display_order": 3
+                },
+                {
+                    "code":"jwicsemail",
+                    "description":"JWICS Email",
+                    "is_required": false,
+                    "display_order": 4
+                },
+                {
+                    "code":"officedsn",
+                    "description":"Office Phone (DSN)",
+                    "is_required": false,
+                    "display_order": 5
+                },
+                {
+                    "code":"officecom",
+                    "description":"Office Phone (Commercial)",
+                    "is_required": false,
+                    "display_order": 6
+                },
+                {
+                    "code":"deskdsn",
+                    "description":"Desk Phone (DSN)",
+                    "is_required": false,
+                    "display_order": 7
+                },
+                {
+                    "code":"deskcom",
+                    "description":"Desk Phone (Commercial)",
+                    "is_required": false,
+                    "display_order": 8
+                }
+            ],
+            "permissions": [
+
+            ],
+            "sites": [
+                {
+                    "code":"dgsc",
+                    "title":"DGS-C",
+                    "work_codes":[
+                        {
+                            "code":"E",
+                            "starttime": 5
+                        },
+                        {
+                            "code":"D",
+                            "starttime": 6
+                        },
+                        {
+                            "code":"A",
+                            "starttime": 9
+                        },
+                        {
+                            "code":"O",
+                            "starttime": 7
+                        },
+                        {
+                            "code":"S",
+                            "starttime": 12
+                        },
+                        {
+                            "code":"L",
+                            "starttime": 14
+                        },
+                        {
+                            "code":"M",
+                            "starttime": 22
+                        },
+                        {
+                            "code":"TW",
+                            "starttime": 8
+                        }
+                    ],
+                    "labor_codes": [],
+                    "workcenters": [
+                        {
+                            "code": 0,
+                            "title":"LEADS",
+                            "display_order": 1,
+                            "positions":[
+                                {
+                                    "title":"Site Lead",
+                                    "display_order": 1,
+                                    "display":true,
+                                    "assigned":[]
+                                },
+                                {
+                                    "title":"Shift Lead",
+                                    "display_order": 2,
+                                    "display":true,
+                                    "assigned":[]
+                                },
+                                {
+                                    "title":"Section Lead",
+                                    "display_order": 3,
+                                    "display":true,
+                                    "assigned":[]
+                                },
+                                {
+                                    "title":"Overhead",
+                                    "display_order": 4,
+                                    "display":false,
+                                    "assigned":[]
+                                }
+                            ],
+                            "shifts":[]
+                        },
+                        {
+                            "title":"GEOINT",
+                            "display_order": 2,
+                            "positions": [],
+                            "shifts":[
+                                {
+                                    "title":"Days",
+                                    "display_order": 1,
+                                    "work_codes": ["E", "D", "A"]
+                                },
+                                {
+                                    "title":"Swings",
+                                    "display_order": 2,
+                                    "work_codes":["S", "L"]
+                                },
+                                {
+                                    "title":"MIDS",
+                                    "display_order": 3,
+                                    "work_codes":["M"]
+                                }
+                            ]
+                        },
+                        {
+                            "title":"HB/LB",
+                            "display_order": 3,
+                            "positions": [],
+                            "shifts":[
+                                {
+                                    "title":"Days",
+                                    "display_order": 1,
+                                    "work_codes": ["E", "D", "A"]
+                                },
+                                {
+                                    "title":"Swings",
+                                    "display_order": 2,
+                                    "work_codes":["S", "L"]
+                                }
+                            ]
+                        }
+                    ],
+                    "employees":[
+                        {
+                            "id": "",
+                            "teamid": "",
+                            "email":"dgs-c@team-scheduler.com",
+                            "roles":["site:scheduler"],
+                            "updatedon":"1970-01-01 00:00:00",
+                            "name":{
+                                "first":"DGS-C",
+                                "middle":"",
+                                "last":"Scheduler",
+                                "suffix":""
+                            },
+                            "creds":{
+                                "salt":"",
+                                "password":"InitialPassword",
+                                "mustchange":true,
+                                "expires":"1970-01-01 00:00:00",
+                                "badattempts":0,
+                                "verified":"2021-03-26 15:00:00",
+                                "verificationToken":"",
+                                "resetToken":"",
+                                "resetTokenExpires":"1970-01-01 00:00:00"
+                            },
+                            "company":{
+                                "companyid":"raytheon",
+                                "employeeid":"",
+                                "alternateid":"",
+                                "division":"",
+                                "costcenter":"",
+                                "rank":""
+                            },
+                            "assignments":[
+                                {
+                                    "code":1,
+                                    "startdate":"1970-01-01 00:00:00",
+                                    "enddate":"9999-12-31 00:00:00",
+                                    "siteid":"dgsc",
+                                    "jobTitle":"Site Master Scheduler",
+                                    "rotationDays":0,
+                                    "schedules":[]
+                                }
+                            ],
+                            "variations":[],
+                            "specialties":[],
+                            "contacts":[],
+                            "labor_codes":[],
+                            "leaveBalances":[],
+                            "leaves":[],
+                            "leaveRequests":[],
+                            "work":[]
+                        }
+                    ]
+                },
+                {
+                    "code":"master",
+                    "title":"Master",
+                    "work_codes":[],
+                    "labor_codes": [],
+                    "workcenters": [],
+                    "employees":[
+                        {
+                            "email":"dmsmp@team-scheduler.com",
+                            "roles":["team:master"],
+                            "updatedon":"1970-01-01 00:00:00",
+                            "name":{
+                                "first":"DMSMP",
+                                "middle":"",
+                                "last":"Scheduler",
+                                "suffix":""
+                            },
+                            "creds":{
+                                "salt":"",
+                                "password":"InitialPassword",
+                                "mustchange":true,
+                                "expires":"1970-01-01 00:00:00",
+                                "badattempts":0,
+                                "verified":"2021-03-26 15:00:00",
+                                "verificationToken":"",
+                                "resetToken":"",
+                                "resetTokenExpires":"1970-01-01 00:00:00"
+                            },
+                            "company":{
+                                "companyid":"raytheon",
+                                "employeeid":"",
+                                "alternateid":"",
+                                "division":"",
+                                "costcenter":"",
+                                "rank":""
+                            },
+                            "assignments":[
+                                {
+                                    "code":1,
+                                    "startdate":"1970-01-01 00:00:00",
+                                    "enddate":"9999-12-31 00:00:00",
+                                    "siteid":"master2",
+                                    "jobTitle":"DMSMP Master Scheduler",
+                                    "rotationDays":0,
+                                    "schedules":[]
+                                }
+                            ],
+                            "variations":[],
+                            "specialties":[],
+                            "contacts":[],
+                            "labor_codes":[],
+                            "leaveBalances":[],
+                            "leaves":[],
+                            "leaveRequests":[],
+                            "work":[]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

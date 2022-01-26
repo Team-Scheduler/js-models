@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import { Company, ContactType, DisplayCode, ICompany, IContactType, IDisplayCode } from "..";
+import { IPermission, Permission } from "./permission";
 import { ISpecialtyGroup, SpecialtyGroup } from "./specialties";
 
 export interface ITeam {
@@ -9,6 +10,7 @@ export interface ITeam {
     displayCodes?: IDisplayCode[];
     specialtyGroups?: ISpecialtyGroup[];
     contactTypes?: IContactType[];
+    permissions?: IPermission[];
 }
 
 export class Team implements ITeam {
@@ -18,6 +20,7 @@ export class Team implements ITeam {
     public displayCodes?: IDisplayCode[] | undefined;
     public specialtyGroups?: ISpecialtyGroup[] | undefined;
     public contactTypes?: IContactType[] | undefined;
+    public permissions?: IPermission[] | undefined;
 
     constructor(other: ITeam) {
         this._id = (other && other._id) ? other._id : undefined;
@@ -44,6 +47,12 @@ export class Team implements ITeam {
         if (other && other.contactTypes) {
             for (let ct of other.contactTypes) {
                 this.contactTypes.push(new ContactType(ct));
+            }
+        }
+        this.permissions = [];
+        if (other && other.permissions) {
+            for (let p of other.permissions) {
+                this.permissions.push(new Permission(p));
             }
         }
     }

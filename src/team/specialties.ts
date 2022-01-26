@@ -3,13 +3,13 @@ import { IComparable } from "../utilities/comparable";
 export interface ISpecialty {
     code: string;
     title: string;
-    description: string
+    description?: string
 }
 
 export class Specialty implements ISpecialty, IComparable<ISpecialty> {
     public code: string;
     public title: string;
-    public description: string;
+    public description?: string | undefined;
 
     constructor(other?: ISpecialty) {
         this.code = (other && other.code) ? other.code : "";
