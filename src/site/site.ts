@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { IEmployee, ISiteLaborCode, IWorkcenter, SiteLaborCode, Workcenter, WorkCode } from "..";
+import { Employee, IEmployee, ISiteLaborCode, IWorkcenter, IWriteable, SiteLaborCode, Workcenter, WorkCode } from "..";
 import { IComparable } from "../utilities/comparable";
 import { IWorkCode } from "./workcode";
 
@@ -14,7 +14,7 @@ export interface ISite {
     employees?: IEmployee[];
 }
 
-export class Site implements ISite, IComparable<ISite> {
+export class Site implements ISite, IComparable<ISite>, IWriteable<ISite> {
     public id?: ObjectId | undefined;
     public code: string;
     public title: string;
@@ -47,6 +47,12 @@ export class Site implements ISite, IComparable<ISite> {
                 this.work_centers.push(new Workcenter(wc));
             }
         }
+        if (other && other.employees && other.employees.length) {
+            this.employees = [];
+            for (let emp of other.employees) {
+                this.employees.push(new Employee(emp));
+            }
+        }
     }
 
     compareTo(other: ISite): number {
@@ -54,5 +60,34 @@ export class Site implements ISite, IComparable<ISite> {
             return (this.title < other.title) ? -1 : 1;
         }
         return (this.code < other.code) ? -1 : 1;
+    }
+
+    createWriteable(): Site {
+        const site = new Site
+        site.id = this.id;
+        if (!site.id) {
+            site.id = new ObjectId();
+            this.id = site.id;
+        }
+        site.code = this.code;
+        site.title = this.title;
+        this.utc_difference = this.utc_difference;
+        this.work_codes = [];
+        if (this.work_codes) {
+            for (let wc of this.work_codes) {
+                site.work_codes?.push(new WorkCode(wc));
+            }
+        }
+        this.work_centers = [];
+        if (this.work_centers) {
+            for (let wc of this.work_centers) {
+                const wkctr = new Workcenter(wc);
+                if (!wkctr.id) {
+                    wkctr.id = new ObjectId();
+                }
+                site.work_centers?.push(wkctr);
+            }
+        }
+        return site;
     }
 }

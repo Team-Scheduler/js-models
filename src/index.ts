@@ -20,3 +20,6 @@ export * from './employee/leaves/leaveRequest';
 export * from './employee/employeeInfo/companyInfo';
 export * from './employee/employeeInfo/credentials';
 export * from './employee/work';
+export * from './utilities/authenticateResponse';
+export * from './utilities/comparable';
+export * from './utilities/writable';

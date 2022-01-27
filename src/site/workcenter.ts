@@ -18,7 +18,7 @@ export class Position implements IPosition, IComparable<IPosition> {
     public employees?: Employee[] | undefined;
 
     constructor(other?: IPosition) {
-        this.id = (other && other.id) ? other.id : undefined;
+        this.id = (other && other.id) ? other.id : new ObjectId();
         this.title = (other) ? other.title : "";
         this.is_displayed = (other) ? other.is_displayed : false;
         this.display_order = (other) ? other.display_order : 0;
@@ -53,7 +53,7 @@ export class Shift implements IShift, IComparable<IShift> {
     public employees?: Employee[] | undefined;
 
     constructor(other?: IShift) {
-        this.id = (other && other.id) ? other.id : undefined;
+        this.id = (other && other.id) ? other.id : new ObjectId();
         this.title = (other) ? other.title : "";
         this.display_order = (other) ? other.display_order : 0;
         this.shift_codes = new Array();
@@ -94,7 +94,7 @@ export class Workcenter implements IWorkcenter, IComparable<IWorkcenter> {
     public employees?: IEmployee[] | undefined;
 
     constructor(other?: IWorkcenter) {
-        this.id = (other && other.id) ? other.id : undefined;
+        this.id = (other && other.id) ? other.id : new ObjectId();
         this.title = (other) ? other.title : "";
         this.display_order = (other) ? other.display_order : 0;
         this.positions = new Array();
@@ -119,5 +119,42 @@ export class Workcenter implements IWorkcenter, IComparable<IWorkcenter> {
 
     compareTo(other: IWorkcenter): number {
         return (this.display_order < other.display_order) ? -1 : 1;
+    }
+
+    addShift(title: string, shiftCodes: string[], mins: number) {
+        let order = 0;
+        if (this.shifts) {
+            for (let shft of this.shifts) {
+                if (shft.display_order > order) {
+                    order = shft.display_order;
+                }
+            }
+        } else {
+            this.shifts = [];
+        }
+        const s = new Shift();
+        s.display_order = order + 1;
+        s.minimums = mins;
+        s.shift_codes = shiftCodes;
+        s.title = title;
+        this.shifts.push(s);
+    }
+
+    addPosition(title: string, display: boolean) {
+        let order = 0;
+        if (this.positions) {
+            for (let pos of this.positions) {
+                if (pos.display_order > order) {
+                    order = pos.display_order;
+                }
+            }
+        } else {
+            this.positions = [];
+        }
+        const pos = new Position();
+        pos.title = title;
+        pos.display_order = order + 1;
+        pos.is_displayed = display;
+        this.positions.push(pos);
     }
 }

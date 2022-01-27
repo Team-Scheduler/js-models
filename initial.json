@@ -696,7 +696,57 @@
                 }
             ],
             "permissions": [
-
+                {
+                    "title": "employee",
+                    "level": 0,
+                    "read": true
+                },
+                {
+                    "title": "site scheduler",
+                    "level": 1,
+                    "read": true,
+                    "write": true
+                },
+                {
+                    "title": "shift leader",
+                    "level": 1,
+                    "read": true,
+                    "write": false,
+                    "approver": true,
+                    "admin": false
+                },
+                {
+                    "title": "section leader",
+                    "level": 1,
+                    "read": true,
+                    "write": true,
+                    "approver": true,
+                    "admin": false
+                },
+                {
+                    "title": "site leader",
+                    "level": 1,
+                    "read": true,
+                    "write": true,
+                    "approver": true,
+                    "admin": true
+                },
+                {
+                    "title": "contract leader",
+                    "level": 2,
+                    "read": true,
+                    "write": false,
+                    "approver": false,
+                    "admin": false
+                },
+                {
+                    "title": "headquarters",
+                    "level": 1,
+                    "read": true,
+                    "write": true,
+                    "approver": false,
+                    "admin": true
+                }
             ],
             "sites": [
                 {
