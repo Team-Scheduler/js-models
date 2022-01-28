@@ -112,7 +112,7 @@ export class Team implements ITeam, IWriteable<Team> {
                 if (!site.id) {
                     site.id = new ObjectId();
                 }
-                team.sites.push(new Site(site));
+                team.sites.push(site.createWriteable());
             }
         }
         return team;

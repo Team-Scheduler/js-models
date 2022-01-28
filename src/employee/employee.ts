@@ -13,6 +13,7 @@ import { IEmployeeLaborCode, EmployeeLaborCode, SiteLaborCode } from "../site/la
 import { WorkDay } from './assignments/workday';
 import { Team } from "../team/team";
 import { WorkCode } from "../site/workcode";
+import { IWriteable } from "..";
 
 export interface IEmployee {
     _id?: ObjectId;
@@ -31,7 +32,8 @@ export interface IEmployee {
     work?: IWork[];
 }
 
-export class Employee implements IEmployee, IComparable<IEmployee> {
+export class Employee 
+    implements IEmployee, IComparable<IEmployee>, IWriteable<IEmployee> {
     public _id?: ObjectId | undefined;
     public position_assigned?: ObjectId | undefined;
     public assignments?: Assignment[] | undefined;
@@ -49,7 +51,7 @@ export class Employee implements IEmployee, IComparable<IEmployee> {
     
     constructor(other?: IEmployee) {
         this._id = (other && other._id) ? other._id : undefined;
-        this.position_assigned = (other && this.position_assigned) 
+        this.position_assigned = (other && other.position_assigned) 
             ? other.position_assigned : undefined;
         this.assignments = [];
         if (other && other.assignments) {
@@ -438,5 +440,64 @@ export class Employee implements IEmployee, IComparable<IEmployee> {
             }
         }
         return "";
+    }
+
+    createWriteable(): IEmployee {
+        const emp = new Employee();
+        emp._id = this._id;
+        emp.position_assigned = (this.position_assigned) 
+            ? this.position_assigned : undefined;
+        if (this.assignments) {
+            emp.assignments = [];
+            for (let asgmt of this.assignments) {
+                emp.assignments.push(new Assignment(asgmt));
+            }
+        }
+        if (this.variations) {
+            emp.variations = [];
+            for (let vari of this.variations) {
+                emp.variations.push(new Variation(vari));
+            }
+        }
+        emp.name = new Name(this.name);
+        emp.creds = new Credentials(this.creds);
+        emp.companyinfo = new CompanyInfo(this.companyinfo);
+        if (this.contacts) {
+            emp.contacts = []
+            for (let contact of this.contacts) {
+                emp.contacts.push(new Contact(contact));
+            }
+        }
+        if (this.specialties) {
+            emp.specialties = []
+            for (let spec of this.specialties) {
+                emp.specialties.push(new EmployeeSpecialty(spec));
+            }
+        }
+        if (this.labor) {
+            emp.labor = [];
+            for (let lc of this.labor) {
+                emp.labor.push(new EmployeeLaborCode(lc));
+            }
+        }
+        if (this.leaves) {
+            emp.leaves = [];
+            for (let lv of this.leaves) {
+                emp.leaves.push(new Leave(lv));
+            }
+        }
+        if (this.balances) {
+            emp.balances = [];
+            for (let bal of this.balances) {
+                emp.balances.push(new LeaveBalance(bal));
+            }
+        }
+        if (this.leaveRequests) {
+            emp.leaveRequests = [];
+            for (let lr of this.leaveRequests) {
+                emp.leaveRequests.push(new LeaveRequest(lr));
+            }
+        }
+        return emp;
     }
 }
