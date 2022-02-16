@@ -1,0 +1,24 @@
+{
+   "type": "postres",
+   "host": "osanscheduler.com",
+   "port": 5432,
+   "username": "teams",
+   "password": "zse45RDXzse45RDX",
+   "database": "teams",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}

@@ -174,73 +174,63 @@
                 }
             ],
             "specialtyGroups":[],
-            "sites":[
+            "permissions": [
                 {
-                    "code":"master",
-                    "title":"Master",
-                    "utc_difference": 0,
-                    "work_codes":[],
-                    "labor_codes": [],
-                    "workcenters": [],
-                    "employees":[
-                        {
-                            "code": "",
-                            "teamid": "",
-                            "email":"teams@team-scheduler.com",
-                            "roles":["master:master"],
-                            "updatedon":"1970-01-01 00:00:00",
-                            "name":{
-                                "first":"Master",
-                                "middle":"",
-                                "last":"Scheduler",
-                                "suffix":""
-                            },
-                            "creds":{
-                                "salt":"",
-                                "password":"InitialPassword",
-                                "mustchange":true,
-                                "expires":"1970-01-01 00:00:00",
-                                "badattempts":0,
-                                "verified":"2021-03-26 15:00:00",
-                                "verificationToken":"",
-                                "resetToken":"",
-                                "resetTokenExpires":"1970-01-01 00:00:00"
-                            },
-                            "company":{
-                                "companyid":"raytheon",
-                                "employeeid":"",
-                                "alternateid":"",
-                                "division":"",
-                                "costcenter":"",
-                                "rank":""
-                            },
-                            "assignments":[
-                                {
-                                    "code":1,
-                                    "startdate":"1970-01-01 00:00:00",
-                                    "enddate":"9999-12-31 00:00:00",
-                                    "siteid":"master",
-                                    "jobTitle":"Master Scheduler",
-                                    "rotationDays":0,
-                                    "schedules":[]
-                                }
-                            ],
-                            "variations":[],
-                            "specialties":[],
-                            "contacts":[],
-                            "labor_codes":[],
-                            "leaveBalances":[],
-                            "leaves":[],
-                            "leaveRequests":[],
-                            "work":[]
-                        }
-                    ]
+                    "title": "employee",
+                    "level": 0,
+                    "read": true
+                },
+                {
+                    "title": "site scheduler",
+                    "level": 1,
+                    "read": true,
+                    "write": true
+                },
+                {
+                    "title": "shift leader",
+                    "level": 1,
+                    "read": true,
+                    "write": false,
+                    "approver": true,
+                    "admin": false
+                },
+                {
+                    "title": "section leader",
+                    "level": 1,
+                    "read": true,
+                    "write": true,
+                    "approver": true,
+                    "admin": false
+                },
+                {
+                    "title": "site leader",
+                    "level": 1,
+                    "read": true,
+                    "write": true,
+                    "approver": true,
+                    "admin": true
+                },
+                {
+                    "title": "contract leader",
+                    "level": 2,
+                    "read": true,
+                    "write": false,
+                    "approver": false,
+                    "admin": false
+                },
+                {
+                    "title": "headquarters",
+                    "level": 1,
+                    "read": true,
+                    "write": true,
+                    "approver": false,
+                    "admin": true
                 }
             ]
         },
         {
-            "code":"",
-            "name":"DMSMP",
+            "code":"DFS",
+            "name":"DCGS Field Support",
             "companies":[
                 {
                     "code":"caci",
@@ -752,110 +742,120 @@
                 {
                     "code":"dgsc",
                     "title":"DGS-C",
+                    "utc_difference": 9,
                     "work_codes":[
                         {
                             "code":"E",
-                            "starttime": 5
+                            "starttime": 5,
+                            "shift_pay_code":1
                         },
                         {
                             "code":"D",
-                            "starttime": 6
+                            "starttime": 6,
+                            "shift_pay_code":1
                         },
                         {
                             "code":"A",
-                            "starttime": 9
+                            "starttime": 9,
+                            "shift_pay_code":1
                         },
                         {
                             "code":"O",
-                            "starttime": 7
+                            "starttime": 7,
+                            "shift_pay_code":1
                         },
                         {
                             "code":"S",
-                            "starttime": 12
+                            "starttime": 12,
+                            "shift_pay_code":6
                         },
                         {
                             "code":"L",
-                            "starttime": 14
+                            "starttime": 14,
+                            "shift_pay_code":6
                         },
                         {
                             "code":"M",
-                            "starttime": 22
+                            "starttime": 22,
+                            "shift_pay_code":4
                         },
                         {
                             "code":"TW",
-                            "starttime": 8
+                            "starttime": 8,
+                            "shift_pay_code":1
                         }
                     ],
                     "labor_codes": [],
                     "workcenters": [
                         {
-                            "code": 0,
                             "title":"LEADS",
                             "display_order": 1,
                             "positions":[
                                 {
                                     "title":"Site Lead",
                                     "display_order": 1,
-                                    "display":true,
+                                    "is_displayed":true,
                                     "assigned":[]
                                 },
                                 {
                                     "title":"Shift Lead",
                                     "display_order": 2,
-                                    "display":true,
+                                    "is_displayed":true,
                                     "assigned":[]
                                 },
                                 {
                                     "title":"Section Lead",
                                     "display_order": 3,
-                                    "display":true,
+                                    "is_displayed":true,
                                     "assigned":[]
                                 },
                                 {
                                     "title":"Overhead",
                                     "display_order": 4,
-                                    "display":false,
+                                    "is_displayed":false,
                                     "assigned":[]
                                 }
-                            ],
-                            "shifts":[]
+                            ]
                         },
                         {
                             "title":"GEOINT",
                             "display_order": 2,
-                            "positions": [],
                             "shifts":[
                                 {
                                     "title":"Days",
                                     "display_order": 1,
-                                    "work_codes": ["E", "D", "A"]
+                                    "work_codes": ["E", "D", "A"],
+                                    "minimums": 2
                                 },
                                 {
                                     "title":"Swings",
                                     "display_order": 2,
-                                    "work_codes":["S", "L"]
+                                    "work_codes":["S", "L"],
+                                    "minimums": 2
                                 },
                                 {
                                     "title":"MIDS",
                                     "display_order": 3,
-                                    "work_codes":["M"]
+                                    "work_codes":["M"],
+                                    "minimums": 1
                                 }
                             ]
                         },
                         {
                             "title":"HB/LB",
                             "display_order": 3,
-                            "positions": [],
                             "shifts":[
                                 {
                                     "title":"Days",
                                     "display_order": 1,
-                                    "work_codes": ["E", "D", "A"]
+                                    "work_codes": ["E", "D", "A"],
+                                    "minimums": 1
                                 },
                                 {
                                     "title":"Swings",
                                     "display_order": 2,
-                                    "work_codes":["S", "L"]
+                                    "work_codes":["S", "L"],
+                                    "minimums": 1
                                 }
                             ]
                         }

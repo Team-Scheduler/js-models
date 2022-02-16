@@ -1,28 +1,36 @@
 {
-  "name": "js-models",
-  "version": "1.0.0",
-  "description": "This package contains the typescript/javascript models for the team scheduler application",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Team-Scheduler/js-models.git"
-  },
-  "author": "Anton P. Erne",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Team-Scheduler/js-models/issues"
-  },
-  "homepage": "https://github.com/Team-Scheduler/js-models#readme",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "mongodb": "^4.2.2"
-  },
-  "devDependencies": {
-    "@types/bcrypt": "^5.0.0"
-  }
+   "name": "js-models",
+   "version": "1.0.0",
+   "description": "This package contains the typescript/javascript models for the team scheduler application",
+   "main": "dist/index.js",
+   "types": "dist/index.d.ts",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "prepublish": "tsc",
+      "start": "ts-node src/index.ts",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Team-Scheduler/js-models.git"
+   },
+   "author": "Anton P. Erne",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/Team-Scheduler/js-models/issues"
+   },
+   "homepage": "https://github.com/Team-Scheduler/js-models#readme",
+   "dependencies": {
+      "bcrypt": "^5.0.1",
+      "pg": "^8.7.1",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.41",
+      "mysql": "^2.14.1"
+   },
+   "devDependencies": {
+      "@types/bcrypt": "^5.0.0",
+      "@types/node": "^8.0.29",
+      "ts-node": "3.3.0",
+      "typescript": "3.3.3333"
+   }
 }

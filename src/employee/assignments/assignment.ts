@@ -1,10 +1,10 @@
-import { ObjectId } from "mongodb";
 import { IComparable } from "../../utilities/comparable";
 import { ISchedule, Schedule } from "./schedule";
 import { WorkDay } from "./workday";
 
 export interface IAssignment {
-    id?: ObjectId;
+    id?: string;
+    employeeID: string;
     start_date: Date;
     end_date: Date;
     site: string;
@@ -14,7 +14,8 @@ export interface IAssignment {
 }
 
 export class Assignment implements IAssignment, IComparable<IAssignment> {
-    public id?: ObjectId | undefined;
+    public id?: string | undefined;
+    public employeeID: string;
     public start_date: Date;
     public end_date: Date;
     public site: string;

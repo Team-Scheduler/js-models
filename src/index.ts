@@ -1,25 +1,21 @@
-export * from "./team/company";
-export * from "./team/contacts";
-export * from "./team/displaycode";
-export * from "./team/holidays";
-export * from "./team/permission";
-export * from "./team/team";
-export * from "./site/site";
-export * from "./site/workcode";
-export * from "./site/laborcode";
-export * from "./site/workcenter";
-export * from "./site/employeeAssignment";
-export * from './employee/employee';
-export * from './employee/assignments/assignment';
-export * from './employee/assignments/schedule';
-export * from './employee/assignments/variation';
-export * from './employee/assignments/workday';
-export * from './employee/leaves/leave';
-export * from './employee/leaves/leaveBalance';
-export * from './employee/leaves/leaveRequest';
-export * from './employee/employeeInfo/companyInfo';
-export * from './employee/employeeInfo/credentials';
-export * from './employee/work';
-export * from './utilities/authenticateResponse';
-export * from './utilities/comparable';
-export * from './utilities/writable';
+import "reflect-metadata";
+import {createConnection} from "typeorm";
+import {User} from "./entity/User";
+
+createConnection().then(async connection => {
+
+    console.log("Inserting a new user into the database...");
+    const user = new User();
+    user.firstName = "Timber";
+    user.lastName = "Saw";
+    user.age = 25;
+    await connection.manager.save(user);
+    console.log("Saved a new user with id: " + user.id);
+
+    console.log("Loading users from the database...");
+    const users = await connection.manager.find(User);
+    console.log("Loaded users: ", users);
+
+    console.log("Here you can setup and run express/koa/any other framework.");
+
+}).catch(error => console.log(error));
